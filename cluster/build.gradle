@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':eventbus')
+    compile project(':shared')
+
+    implementation group: 'io.vertx', name: 'vertx-hazelcast', version: "$vertxVersion"
+}

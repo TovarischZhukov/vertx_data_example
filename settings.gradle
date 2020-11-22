@@ -1,0 +1,5 @@
+rootProject.name = 'vertx_data_example'
+include 'eventbus'
+include 'shared'
+include 'cluster'
+
