@@ -52,13 +52,13 @@ public final class Member extends AbstractVerticle {
       if (reply.succeeded()) {
         System.out.println("Hangs out with " + to);
       } else {
-        System.out.println("Bored of " + to);
+        System.out.println("Bored of " + to +", cause: "+ reply.cause());
       }
     });
   }
 
   public static final class Factory extends JavaVerticleFactory {
-    private long auditorNumber;
+    private long number;
 
     @Override
     public String prefix() {
@@ -68,7 +68,7 @@ public final class Member extends AbstractVerticle {
     @SuppressWarnings("ProhibitedExceptionDeclared")
     @Override
     public Verticle createVerticle(String verticleName, ClassLoader classLoader) {
-      return new Member(auditorNumber++);
+      return new Member(number++);
     }
   }
 }
