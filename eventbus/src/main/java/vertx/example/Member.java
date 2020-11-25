@@ -10,10 +10,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @SuppressWarnings({"UseOfSystemOutOrSystemErr", "NotNullNullableValidation"})
 public final class Member extends AbstractVerticle {
-  private final long number;
+  private final String name;
 
   private Member(long number) {
-    this.number = number;
+    this.name = "member#" + number;
   }
 
   @Override
@@ -22,8 +22,6 @@ public final class Member extends AbstractVerticle {
   }
 
   private void subscribe() {
-    final String name = "member#" + number;
-
     final JsonObject message = new JsonObject().put("name", name);
     System.out.println(name + " wants to join the party");
 
