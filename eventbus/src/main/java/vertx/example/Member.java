@@ -50,7 +50,7 @@ public final class Member extends AbstractVerticle {
       if (reply.succeeded()) {
         System.out.println("Hangs out with " + to);
       } else {
-        System.out.println("Bored of " + to +", cause: "+ reply.cause());
+        System.out.println("Bored of " + to + ", cause: " + reply.cause());
       }
     });
   }
