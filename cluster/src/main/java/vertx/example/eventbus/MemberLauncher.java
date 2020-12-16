@@ -3,13 +3,14 @@ package vertx.example.eventbus;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
+import io.vertx.spi.cluster.hazelcast.HazelcastClusterManager;
 import vertx.example.Member;
 
 @SuppressWarnings("NotNullNullableValidation")
 public final class MemberLauncher {
   public static void main(String[] args) {
     Vertx.clusteredVertx(
-        new VertxOptions(),
+        new VertxOptions().setClusterManager(new HazelcastClusterManager(HazelcastConfigFactory.config(args))),
         vertxResult -> {
           final var vertx = vertxResult.result();
           final var factory = new Member.Factory();
